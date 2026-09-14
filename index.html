@@ -1,175 +1,167 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Jemblem - Camilan Tradisional</title>
+    <title>Jajan Enak</title>
 
     <style>
+
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background-color: #fff8ed;
             color: #3b2116;
         }
 
-        /* HEADER */
+        /* ================= HEADER ================= */
+
         header {
             background-color: #4b2618;
             color: white;
-            padding: 18px 7%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .logo {
-            font-size: 30px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #ffc33d;
+        header h1 {
+            margin: 0 0 15px;
+            font-size: 32px;
         }
 
         nav a {
+            display: inline-block;
             color: white;
             text-decoration: none;
-            margin: 0 12px;
+            margin: 5px 8px;
+            padding: 9px 15px;
+            border-radius: 20px;
             font-weight: bold;
         }
 
         nav a:hover {
-            color: #ffc33d;
+            background-color: #ffc33d;
+            color: #3b2116;
         }
 
-        .wa-header {
-            background-color: #19b957;
-            color: white;
-            text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 25px;
-            font-weight: bold;
+        /* ================= HALAMAN ================= */
+
+        .halaman {
+            display: none;
+            min-height: 600px;
         }
 
-        /* HERO */
-        .hero {
-            min-height: 500px;
-            padding: 70px 7%;
-            display: flex;
-            align-items: center;
+        .halaman.aktif {
+            display: block;
+        }
 
-            background-image:
+        /* ================= BERANDA ================= */
+
+        .beranda {
+            min-height: 600px;
+            padding: 100px 20px;
+            text-align: center;
+
+            background:
                 linear-gradient(
-                    to right,
-                    rgba(255,248,237,0.97),
-                    rgba(255,248,237,0.65),
-                    rgba(255,248,237,0.1)
-                ),
-                url("assets/hero.jpg");
-
-            background-size: cover;
-            background-position: center;
+                    rgba(255, 227, 174, 0.85),
+                    rgba(255, 248, 237, 0.95)
+                );
         }
 
-        .hero-content {
-            max-width: 550px;
+        .beranda h2 {
+            font-size: 55px;
+            margin: 20px 0 10px;
+        }
+
+        .beranda p {
+            font-size: 20px;
+            max-width: 650px;
+            margin: 15px auto;
+            line-height: 1.7;
         }
 
         .promo {
             display: inline-block;
-            background-color: #ed3b25;
+            background-color: #ed3925;
             color: white;
-            padding: 12px 20px;
-            border-radius: 25px;
+            padding: 13px 25px;
+            border-radius: 30px;
             font-weight: bold;
-            margin-bottom: 20px;
+            font-size: 20px;
         }
 
-        .hero h1 {
-            font-size: 75px;
-            margin-bottom: 10px;
-        }
-
-        .hero h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .btn-wa {
+        .tombol {
             display: inline-block;
+            margin-top: 20px;
             background-color: #19b957;
             color: white;
             text-decoration: none;
-            padding: 15px 25px;
+            padding: 14px 25px;
             border-radius: 30px;
             font-weight: bold;
         }
 
-        .btn-wa:hover {
-            background-color: #128c43;
-        }
-
-        /* PRODUK */
-        #produk {
-            padding: 60px 7%;
-        }
+        /* ================= JUDUL ================= */
 
         .judul {
             text-align: center;
-            margin-bottom: 35px;
+            padding: 55px 20px 30px;
         }
 
         .judul h2 {
             font-size: 40px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .judul p {
-            color: #76594b;
+            font-size: 18px;
         }
 
+        /* ================= PRODUK ================= */
+
         .produk-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            width: 90%;
+            margin: auto;
+            padding-bottom: 60px;
+
+            display: flex;
+            justify-content: center;
             gap: 30px;
+            flex-wrap: wrap;
         }
 
         .produk {
             background-color: white;
-            border-radius: 15px;
+            width: 290px;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            text-align: center;
+            padding-bottom: 25px;
         }
 
         .produk img {
             width: 100%;
-            height: 230px;
+            height: 220px;
             object-fit: cover;
         }
 
-        .isi-produk {
-            padding: 22px;
+        .produk h3 {
+            font-size: 25px;
+            margin: 18px 10px 8px;
         }
 
-        .isi-produk h3 {
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
-
-        .isi-produk p {
+        .produk p {
+            padding: 0 18px;
             line-height: 1.6;
         }
 
@@ -179,141 +171,185 @@
             margin: 15px 0;
         }
 
+        .harga-promo {
+            color: #e63220;
+            font-weight: bold;
+        }
+
         .pesan {
-            display: block;
-            text-align: center;
-            background-color: #ffc33d;
-            color: #3b2116;
+            display: inline-block;
+            background-color: #19b957;
+            color: white;
             text-decoration: none;
-            padding: 12px;
+            padding: 12px 22px;
             border-radius: 25px;
             font-weight: bold;
         }
 
         .pesan:hover {
-            background-color: #f2a900;
+            background-color: #128c43;
         }
 
-        /* TENTANG */
-        #tentang {
-            background-color: #fff0d5;
-            padding: 60px 7%;
-            text-align: center;
+        /* ================= HALAMAN JEMBLEM ================= */
+
+        #jemblem {
+            background-color: #fff8ed;
         }
 
-        #tentang p {
-            max-width: 750px;
-            margin: auto;
-            line-height: 1.8;
+        /* ================= HALAMAN PAUS ================= */
+
+        #paus {
+            background-color: #eaf8ff;
+            color: #123047;
         }
 
-        /* KONTAK */
+        #paus .produk {
+            border-top: 5px solid #087ea4;
+        }
+
+        /* ================= HALAMAN BAKSO ================= */
+
+        #bakso {
+            background-color: #fff4e8;
+        }
+
+        #bakso .produk {
+            border-top: 5px solid #c2410c;
+        }
+
+        /* ================= KONTAK ================= */
+
         #kontak {
+            text-align: center;
+            padding: 90px 20px;
             background-color: #4b2618;
             color: white;
-            text-align: center;
-            padding: 60px 7%;
         }
 
         #kontak h2 {
-            font-size: 35px;
-            margin-bottom: 10px;
+            font-size: 40px;
         }
 
         #kontak p {
-            margin-bottom: 25px;
+            font-size: 20px;
+            margin: 20px;
         }
 
-        /* FOOTER */
+        .nomor {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        /* ================= FOOTER ================= */
+
         footer {
             background-color: #2e180f;
             color: white;
             text-align: center;
-            padding: 18px;
+            padding: 20px;
         }
 
-        /* HP */
-        @media (max-width: 800px) {
+        /* ================= HP ================= */
 
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
+        @media (max-width: 700px) {
 
-            nav {
-                text-align: center;
+            header h1 {
+                font-size: 25px;
             }
 
             nav a {
-                margin: 5px;
+                font-size: 14px;
+                padding: 7px 10px;
             }
 
-            .hero {
-                padding: 50px 6%;
+            .beranda h2 {
+                font-size: 40px;
             }
 
-            .hero h1 {
-                font-size: 55px;
+            .judul h2 {
+                font-size: 32px;
             }
 
-            .produk-container {
-                grid-template-columns: 1fr;
+            .produk {
+                width: 90%;
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-<!-- HEADER -->
+
+<!-- ================= HEADER ================= -->
+
 <header>
 
-    <div class="logo">
-         <span>Jemblem</span>
-    </div>
+    <h1>🍴 JAJAN ENAK</h1>
 
     <nav>
-        <a href="#beranda">Beranda</a>
-        <a href="#produk">Produk</a>
-        <a href="#tentang">Tentang Kami</a>
-        <a href="#kontak">Kontak</a>
-    </nav>
 
-    <a class="wa-header"
-       href="https://wa.me/6282212345678"
-       target="_blank">
-        💬 Chat WA
-    </a>
+        <a href="#" onclick="bukaHalaman('beranda')">
+            🏠 Beranda
+        </a>
+
+        <a href="#" onclick="bukaHalaman('jemblem')">
+            🍠 Jemblem
+        </a>
+
+        <a href="#" onclick="bukaHalaman('paus')">
+            🐋 Ikan Paus
+        </a>
+
+        <a href="#" onclick="bukaHalaman('bakso')">
+            🍲 Bakso
+        </a>
+
+        <a href="#" onclick="bukaHalaman('kontak')">
+            📞 Kontak
+        </a>
+
+    </nav>
 
 </header>
 
 
-<!-- BERANDA -->
-<section class="hero" id="beranda">
+<!-- ================================================= -->
+<!-- ================= HALAMAN BERANDA =============== -->
+<!-- ================================================= -->
 
-    <div class="hero-content">
+<section id="beranda" class="halaman aktif">
+
+    <div class="beranda">
 
         <div class="promo">
-            🔥 PROMO 10%
+            🎉 PROMO 10%
         </div>
 
-        <h1>Jemblem</h1>
-
         <h2>
-            Camilan Sederhana dengan Rasa Luar Biasa!
+            Selamat Datang!
         </h2>
 
         <p>
-            Nikmati jemblem dengan berbagai pilihan rasa
-            yang lezat, renyah, dan cocok untuk menemani
-            waktu santai bersama keluarga.
+            Selamat datang di Jajan Enak.
+            Temukan berbagai makanan dan camilan
+            lezat dengan harga terjangkau.
         </p>
 
-        <a class="btn-wa"
-           href="https://wa.me/6282212345678?text=Halo%20Jemblem,%20saya%20ingin%20check%20out."
-           target="_blank">
+        <p>
+            🔥 Dapatkan <b>DISKON 10%</b>
+            khusus checkout melalui WhatsApp!
+        </p>
 
-            📱 Check Out via WhatsApp
+        <a
+            class="tombol"
+            href="https://wa.me/6282212345678?text=Halo%20Jajan%20Enak,%20saya%20ingin%20check%20out."
+            target="_blank">
+
+            📱 CHECKOUT VIA WHATSAPP
 
         </a>
 
@@ -322,127 +358,136 @@
 </section>
 
 
-<!-- PRODUK -->
-<section id="produk">
+<!-- ================================================= -->
+<!-- ================= HALAMAN JEMBLEM =============== -->
+<!-- ================================================= -->
+
+<section id="jemblem" class="halaman">
 
     <div class="judul">
 
-        <h2>🍠 Produk Kami</h2>
+        <h2>🍠 Produk Jemblem</h2>
 
         <p>
-            Pilih rasa favoritmu dan dapatkan promo 10%!
+            Jemblem lezat dan renyah untuk teman santai.
         </p>
+
+        <div class="promo">
+            🔥 PROMO 10%
+        </div>
 
     </div>
 
 
     <div class="produk-container">
 
+        <!-- JEMBLEM ORIGINAL -->
 
-        <!-- ORIGINAL -->
         <div class="produk">
 
             <img
-                src="assets/jemblem-original.jpg"
+                src="gambar/jemblem.jpg"
                 alt="Jemblem Original">
 
-            <div class="isi-produk">
+            <h3>
+                Jemblem Original
+            </h3>
 
-                <h3>
-                    Jemblem Original
-                </h3>
+            <p>
+                Jemblem original dengan rasa
+                gurih dan renyah.
+            </p>
 
-                <p>
-                    Jemblem dengan rasa original
-                    yang gurih dan renyah.
-                </p>
-
-                <div class="harga">
-                    Rp 15.000 / bungkus
-                </div>
-
-                <a
-                    class="pesan"
-                    href="https://wa.me/6282212345678?text=Halo,%20saya%20ingin%20membeli%20Jemblem%20Original."
-                    target="_blank">
-
-                    🛒 Pesan Sekarang
-
-                </a>
-
+            <div class="harga">
+                Rp15.000
             </div>
+
+            <p class="harga-promo">
+                Promo 10% → Rp13.500
+            </p>
+
+            <a
+                class="pesan"
+                href="https://wa.me/6282212345678?text=Halo,%20saya%20ingin%20checkout%20Jemblem%20Original."
+                target="_blank">
+
+                🛒 Pesan Sekarang
+
+            </a>
 
         </div>
 
 
-        <!-- COKLAT -->
+        <!-- JEMBLEM COKLAT -->
+
         <div class="produk">
 
             <img
-                src="assets/jemblem-coklat.jpg"
+                src="gambar/jemblem-coklat.jpg"
                 alt="Jemblem Coklat">
 
-            <div class="isi-produk">
+            <h3>
+                Jemblem Coklat
+            </h3>
 
-                <h3>
-                    Jemblem Coklat
-                </h3>
+            <p>
+                Jemblem dengan rasa coklat
+                yang manis dan lezat.
+            </p>
 
-                <p>
-                    Jemblem dengan tambahan coklat
-                    yang manis dan lezat.
-                </p>
-
-                <div class="harga">
-                    Rp 18.000 / bungkus
-                </div>
-
-                <a
-                    class="pesan"
-                    href="https://wa.me/6282212345678?text=Halo,%20saya%20ingin%20membeli%20Jemblem%20Coklat."
-                    target="_blank">
-
-                    🛒 Pesan Sekarang
-
-                </a>
-
+            <div class="harga">
+                Rp18.000
             </div>
+
+            <p class="harga-promo">
+                Promo 10% → Rp16.200
+            </p>
+
+            <a
+                class="pesan"
+                href="https://wa.me/6282212345678?text=Halo,%20saya%20ingin%20checkout%20Jemblem%20Coklat."
+                target="_blank">
+
+                🛒 Pesan Sekarang
+
+            </a>
 
         </div>
 
 
-        <!-- KEJU -->
+        <!-- JEMBLEM KEJU -->
+
         <div class="produk">
 
             <img
-                src="assets/jemblem-keju.jpg"
+                src="gambar/jemblem-keju.jpg"
                 alt="Jemblem Keju">
 
-            <div class="isi-produk">
+            <h3>
+                Jemblem Keju
+            </h3>
 
-                <h3>
-                    Jemblem Keju
-                </h3>
+            <p>
+                Jemblem dengan rasa keju
+                yang gurih dan nikmat.
+            </p>
 
-                <p>
-                    Jemblem dengan rasa keju
-                    yang gurih dan nikmat.
-                </p>
-
-                <div class="harga">
-                    Rp 18.000 / bungkus
-                </div>
-
-                <a
-                    class="pesan"
-                    href="https://wa.me/6282212345678?text=Halo,%20saya%20ingin%20membeli%20Jemblem%20Keju."
-                    target="_blank">
-
-                    🛒 Pesan Sekarang
-
-                </a>
-
+            <div class="harga">
+                Rp18.000
             </div>
+
+            <p class="harga-promo">
+                Promo 10% → Rp16.200
+            </p>
+
+            <a
+                class="pesan"
+                href="https://wa.me/6282212345678?text=Halo,%20saya%20ingin%20checkout%20Jemblem%20Keju."
+                target="_blank">
+
+                🛒 Pesan Sekarang
+
+            </a>
 
         </div>
 
@@ -451,55 +496,205 @@
 </section>
 
 
-<!-- TENTANG -->
-<section id="tentang">
+<!-- ================================================= -->
+<!-- ================= HALAMAN IKAN PAUS ============= -->
+<!-- ================================================= -->
+
+<section id="paus" class="halaman">
 
     <div class="judul">
 
-        <h2>❤️ Tentang Jemblem</h2>
+        <h2>🐋 Produk Ikan Paus</h2>
+
+        <p>
+            Produk Ikan Paus dengan kualitas terbaik.
+        </p>
+
+        <div class="promo">
+            🔥 PROMO 10%
+        </div>
 
     </div>
 
-    <p>
-        Jemblem merupakan camilan tradisional yang
-        dibuat dengan bahan pilihan dan diolah dengan
-        cita rasa yang lezat. Kami menyediakan tiga
-        pilihan rasa yaitu Original, Coklat, dan Keju.
-    </p>
+
+    <div class="produk-container">
+
+        <div class="produk">
+
+            <img
+                src="gambar/ikan-paus.jpg"
+                alt="Ikan Paus">
+
+            <h3>
+                Ikan Paus
+            </h3>
+
+            <p>
+                Produk Ikan Paus dengan
+                harga terjangkau.
+            </p>
+
+            <div class="harga">
+                Rp20.000
+            </div>
+
+            <p class="harga-promo">
+                Promo 10% → Rp18.000
+            </p>
+
+            <a
+                class="pesan"
+                href="https://wa.me/6282212345678?text=Halo,%20saya%20ingin%20checkout%20Ikan%20Paus."
+                target="_blank">
+
+                🛒 Pesan Sekarang
+
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- KONTAK -->
-<section id="kontak">
+<!-- ================================================= -->
+<!-- ================= HALAMAN BAKSO ================== -->
+<!-- ================================================= -->
+
+<section id="bakso" class="halaman">
+
+    <div class="judul">
+
+        <h2>🍲 Produk Bakso</h2>
+
+        <p>
+            Bakso lezat dengan kuah gurih.
+        </p>
+
+        <div class="promo">
+            🔥 PROMO 10%
+        </div>
+
+    </div>
+
+
+    <div class="produk-container">
+
+        <div class="produk">
+
+            <img
+                src="gambar/bakso.jpg"
+                alt="Bakso">
+
+            <h3>
+                Bakso Special
+            </h3>
+
+            <p>
+                Bakso dengan kuah gurih
+                yang nikmat.
+            </p>
+
+            <div class="harga">
+                Rp15.000
+            </div>
+
+            <p class="harga-promo">
+                Promo 10% → Rp13.500
+            </p>
+
+            <a
+                class="pesan"
+                href="https://wa.me/6282212345678?text=Halo,%20saya%20ingin%20checkout%20Bakso%20Special."
+                target="_blank">
+
+                🛒 Pesan Sekarang
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ================= HALAMAN KONTAK ================ -->
+<!-- ================================================= -->
+
+<section id="kontak" class="halaman">
 
     <h2>
-        🎉 Jangan Lewatkan Promo 10%!
+        📞 Hubungi Kami
     </h2>
 
     <p>
-        Khusus pembelian melalui WhatsApp.
+        Ingin melakukan pemesanan?
+    </p>
+
+    <p>
+        Dapatkan <b>PROMO 10%</b>
+        dengan checkout melalui WhatsApp.
+    </p>
+
+    <p class="nomor">
+        📱62-5590-5755
     </p>
 
     <a
-        class="btn-wa"
-        href="https://wa.me/6282212345678?text=Halo%20Jemblem,%20saya%20ingin%20check%20out%20dan%20menggunakan%20promo%2010%25."
+        class="tombol"
+        href="https://wa.me/6282212345678?text=Halo%20Jajan%20Enak,%20saya%20ingin%20check%20out%20dan%20mendapatkan%20promo%2010%25."
         target="_blank">
 
-        📲 Whatsapp: 62-5590-5755
+        💬 CHECKOUT SEKARANG
 
     </a>
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-    kiranataniaisabel©2026 Jemblem | Camilan Tradisional,
-    Rasa Istimewa ❤️
+    <p>
+        kiranataniaisabel©2026 Jajanan Enak
+    </p>
+
+    <p>
+        Jemblem • Ikan Paus • Bakso
+    </p>
 
 </footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    function bukaHalaman(jajanan 1{
+
+        // Mengambil semua halaman
+        var halaman = document.querySelectorAll(".halaman");
+
+        // Menyembunyikan semua halaman
+        halaman.forEach(function(hal) {
+            hal.classList.remove("aktif");
+        });
+
+        // Menampilkan halaman yang dipilih
+        document.getElementById(jajanan 2)
+                .classList.add("aktif");
+
+        // Kembali ke bagian atas
+        window.scrollTo(0, 0);
+
+    }
+
+</script>
+
 
 </body>
 </html>
